@@ -1,6 +1,7 @@
-
-<h1 style="display: inline;">PaperlessKit (PLK) - Multiplatform Library for Document Scanning</h1>
-<img src="./images/icon.png" alt="PaperlessKit Logo" style="display: inline; height: 40px; margin-left: 10px;">
+<div style="display: flex; align-items: center;">
+    <h1 style="margin-right: 10px;">PaperlessKit (PLK) - Multiplatform Library for Document Scanning</h1>
+    <img src="path_to_your_image.png" alt="PaperlessKit Logo" style="height: 40px;">
+</div>
 
 
 **PaperlessKit** (PLK) is a multiplatform library designed to simplify document scanning, editing, and PDF handling. With support for **Kotlin Multiplatform**, this library enables you to create mobile apps for **Android** and **iOS** with powerful features for intelligent document scanning.
