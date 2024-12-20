@@ -1,10 +1,10 @@
 <div style="display: flex; align-items: center;">
-    <h1 style="margin-right: 10px;">PaperlessKit (PLK) - Multiplatform Library for Document Scanning</h1>
+    <h1 style="margin-right: 10px;">PaperlessKit (PLK) - Kotlin Multiplatform Library for Document Scanning</h1>
     <img src="./images/icon.png" alt="PaperlessKit Logo" style="height: 200px;">
 </div>
 
 
-**PaperlessKit** (PLK) is a multiplatform library designed to simplify document scanning, editing, and PDF handling. With support for **Kotlin Multiplatform**, this library enables you to create mobile apps for **Android** and **iOS** with powerful features for intelligent document scanning.
+**PaperlessKit** (PLK) is a kotlin multiplatform library designed to simplify document scanning, editing, and PDF handling. With support for **Kotlin Multiplatform**, this library enables you to create mobile apps for **Android** and **iOS** with powerful features for intelligent document scanning.
 
 ### Features
 
