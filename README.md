@@ -90,7 +90,7 @@ The `PaperlessKit` class implements the `PaperlessKitInterface` and provides the
 
 ### About the Creator
 
-**PaperlessKit** was developed by **Thiago Sousa** ([@thiagoodev](https://github.com/thiagoodev)) as part of an effort to provide a simple and effective solution for document scanning. This library aims to make it easy to integrate document scanning and PDF handling features into multiplatform apps.
+**PaperlessKit** was developed by **Thiago Sousa** ([@cthiagoodev](https://github.com/cthiagoodev)) as part of an effort to provide a simple and effective solution for document scanning. This library aims to make it easy to integrate document scanning and PDF handling features into multiplatform apps.
 
 ---
 
