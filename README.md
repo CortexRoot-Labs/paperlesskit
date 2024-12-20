@@ -1,6 +1,6 @@
 <div style="display: flex; align-items: center;">
     <h1 style="margin-right: 10px;">PaperlessKit (PLK) - Multiplatform Library for Document Scanning</h1>
-    <img src="path_to_your_image.png" alt="PaperlessKit Logo" style="height: 40px;">
+    <img src="./images/icon.png" alt="PaperlessKit Logo" style="height: 200px;">
 </div>
 
 
