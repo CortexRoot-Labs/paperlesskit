@@ -26,12 +26,17 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(libs.kotlinx.coroutines.core)
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.opencv)
             }
         }
     }
@@ -50,7 +55,7 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates(group.toString(), "library", version.toString())
+    coordinates(group.toString(), "paperlesskit", version.toString())
 
     pom {
         name = "PaperlessKit"
@@ -59,25 +64,26 @@ mavenPublishing {
                 "documents using the device's camera, selecting existing files from local " +
                 "storage, and opening PDFs for viewing in an intuitive and efficient way."
         inceptionYear = "2024"
-        url = "https://github.com/kotlin/multiplatform-library-template/"
+        url = "https://github.com/cthiagoodev/paperlesskit/"
         licenses {
             license {
-                name = "XXX"
-                url = "YYY"
-                distribution = "ZZZ"
+                name = "Apache-2.0"
+                url = "https://opensource.org/licenses/Apache-2.0"
+                distribution = "repo"
             }
         }
         developers {
             developer {
-                id = "XXX"
-                name = "YYY"
-                url = "ZZZ"
+                id = "cthiagoodev"
+                name = "Thiago Sousa"
+                url = "https://github.com/cthiagoodev"
             }
         }
         scm {
-            url = "XXX"
-            connection = "YYY"
-            developerConnection = "ZZZ"
+            url = "https://github.com/cthiagoodev/paperlesskit"
+            connection = "scm:git:git://github.com/cthiagoodev/paperlesskit.git"
+            developerConnection = "scm:git:git@github.com:cthiagoodev/paperlesskit.git"
         }
     }
 }
+
