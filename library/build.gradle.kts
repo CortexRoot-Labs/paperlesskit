@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
+    `maven-publish`
 }
 
 group = "br.com.thiagoodev"
@@ -87,3 +88,20 @@ mavenPublishing {
     }
 }
 
+publishing {
+    repositories {
+        maven {
+            name = "PaperlessKit"
+            url = uri("https://maven.pkg.github.com/cthiagoodev/paperlesskit")
+            credentials {
+                username = project.findProperty("cthiagoodev") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("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") as String? ?: System.getenv("TOKEN")
+            }
+        }
+    }
+    publications {
+        register<MavenPublication>("gpr") {
+            from(components["kotlin"])
+        }
+    }
+}

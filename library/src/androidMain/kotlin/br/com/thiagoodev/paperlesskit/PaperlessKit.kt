@@ -5,8 +5,6 @@ import org.opencv.android.OpenCVLoader
 
 
 actual class PaperlessKit : PaperlessKitInterface {
-    private lateinit var bridge: CameraBridgeViewBase
-
     init {
         val isInitialize: Boolean = OpenCVLoader.initLocal()
         if(!isInitialize) {
