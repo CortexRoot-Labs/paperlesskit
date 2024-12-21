@@ -1,6 +1,8 @@
 import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
+
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -88,14 +90,25 @@ mavenPublishing {
     }
 }
 
+
+
 publishing {
+    val localProperties = Properties().apply {
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            load(localPropertiesFile.inputStream())
+        }
+    }
+
+    val githubToken: String = localProperties.getProperty("GITHUB_TOKEN") ?: ""
+
     repositories {
         maven {
             name = "PaperlessKit"
             url = uri("https://maven.pkg.github.com/cthiagoodev/paperlesskit")
             credentials {
                 username = project.findProperty("cthiagoodev") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("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") as String? ?: System.getenv("TOKEN")
+                password = project.findProperty(githubToken) as String? ?: System.getenv("TOKEN")
             }
         }
     }
