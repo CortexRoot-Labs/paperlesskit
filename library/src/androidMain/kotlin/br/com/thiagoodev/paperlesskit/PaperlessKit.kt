@@ -5,7 +5,7 @@ import org.opencv.android.OpenCVLoader
 
 
 actual class PaperlessKit : PaperlessKitInterface {
-    private lateinit var cameraView: CameraBridgeViewBase
+    private lateinit var bridge: CameraBridgeViewBase
 
     init {
         val isInitialize: Boolean = OpenCVLoader.initLocal()
@@ -15,6 +15,7 @@ actual class PaperlessKit : PaperlessKitInterface {
     }
 
     actual override suspend fun scan(options: Options): PDF {
+
 
         TODO("Not yet implemented")
     }
