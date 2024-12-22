@@ -1,18 +1,15 @@
-import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import java.util.Properties
-
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
-    `maven-publish`
+    id("maven-publish")
 }
 
 group = "br.com.thiagoodev"
-version = "1.0.0-alpha"
+version = "1.0.0"
 
 kotlin {
     androidTarget {
@@ -53,62 +50,18 @@ android {
     }
 }
 
-mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-
-    signAllPublications()
-
-    coordinates(group.toString(), "paperlesskit", version.toString())
-
-    pom {
-        name = "PaperlessKit"
-        description = "PaperlessKit is a multiplatform library designed to simplify " +
-                "the scanning, selection, and manipulation of PDF files. It allows capturing " +
-                "documents using the device's camera, selecting existing files from local " +
-                "storage, and opening PDFs for viewing in an intuitive and efficient way."
-        inceptionYear = "2024"
-        url = "https://github.com/cthiagoodev/paperlesskit/"
-        licenses {
-            license {
-                name = "Apache-2.0"
-                url = "https://opensource.org/licenses/Apache-2.0"
-                distribution = "repo"
-            }
-        }
-        developers {
-            developer {
-                id = "cthiagoodev"
-                name = "Thiago Sousa"
-                url = "https://github.com/cthiagoodev"
-            }
-        }
-        scm {
-            url = "https://github.com/cthiagoodev/paperlesskit"
-            connection = "scm:git:git://github.com/cthiagoodev/paperlesskit.git"
-            developerConnection = "scm:git:git@github.com:cthiagoodev/paperlesskit.git"
-        }
-    }
-}
-
-
-
 publishing {
-    val localProperties = Properties().apply {
-        val localPropertiesFile = rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            load(localPropertiesFile.inputStream())
-        }
-    }
-
-    val githubToken: String = localProperties.getProperty("GITHUB_TOKEN") ?: ""
-
     repositories {
         maven {
             name = "PaperlessKit"
             url = uri("https://maven.pkg.github.com/cthiagoodev/paperlesskit")
             credentials {
-                username = project.findProperty("cthiagoodev") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty(githubToken) as String? ?: System.getenv("TOKEN")
+                username = project.findProperty("GITHUB_USERNAME") as String?
+                    ?: System.getenv("GITHUB_USERNAME")
+                    ?: throw Exception("Github Username environment variable not found")
+                password = project.findProperty("GITHUB_TOKEN") as String?
+                    ?: System.getenv("GITHUB_TOKEN")
+                    ?: throw Exception("Github Token environment variable not found")
             }
         }
     }
