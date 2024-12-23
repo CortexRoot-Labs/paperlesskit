@@ -1,5 +1,6 @@
 package br.com.thiagoodev.paperlesskit
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.util.Log
 import org.opencv.android.CameraBridgeViewBase
@@ -14,6 +15,9 @@ import org.opencv.imgproc.Imgproc
 
 
 actual class PaperlessKit : PaperlessKitInterface {
+    lateinit var cameraView: CameraBridgeViewBase
+    lateinit var context: Context
+
     init {
         initializeOpenCV()
     }
@@ -28,6 +32,8 @@ actual class PaperlessKit : PaperlessKitInterface {
     }
 
     actual override suspend fun scan(options: Options): PDF {
+        cameraView = CameraBridgeViewBase(context, CameraBridgeViewBase.CAMERA_ID_ANY)
+
         TODO("Not yet implemented")
     }
 
