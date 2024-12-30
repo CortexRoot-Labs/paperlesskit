@@ -36,7 +36,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(libs.opencv)
+                implementation(libs.mlkit.document.scanner)
             }
         }
     }
