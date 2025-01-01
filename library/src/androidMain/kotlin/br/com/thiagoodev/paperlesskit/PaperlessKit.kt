@@ -54,8 +54,4 @@ actual class PaperlessKit : AppCompatActivity(), PaperlessKitInterface {
     actual override suspend fun open(path: String) {
         TODO("Not yet implemented")
     }
-
-    fun log(message: String) {
-        Log.println(Log.INFO, "PaperlessKit", message)
-    }
 }
