@@ -1,4 +1,4 @@
-package br.com.thiagoodev.paperlesskit
+package br.com.cortexrootlabs.paperlesskit
 
 actual class PaperlessKit : PaperlessKitInterface {
     actual override suspend fun scan(options: Options): PDF {

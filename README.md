@@ -19,7 +19,7 @@ To use the PaperlessKit (PLK) library in your project, add the dependency in you
 
 ```kotlin
 dependencies {
-    implementation("br.com.thiagoodev.paperlesskit:paperlesskit:<version>")
+    implementation("br.com.cortexrootlabs.paperlesskit:paperlesskit:<version>")
 }
 ```
 
@@ -30,7 +30,7 @@ Here are some examples of how to implement **PaperlessKit** (PLK) in a **Kotlin 
 #### Example 1: Scanning a Document
 
 ```kotlin
-import br.com.thiagoodev.paperlesskit.*
+import br.com.cortexrootlabs.paperlesskit.*
 
 suspend fun scanDocument() {
     val options = Options(
@@ -46,7 +46,7 @@ suspend fun scanDocument() {
 #### Example 2: Picking a PDF from Storage
 
 ```kotlin
-import br.com.thiagoodev.paperlesskit.*
+import br.com.cortexrootlabs.paperlesskit.*
 
 suspend fun pickPdfFromStorage() {
     val pdf: PDF = PaperlessKit().pick()
@@ -57,7 +57,7 @@ suspend fun pickPdfFromStorage() {
 #### Example 3: Opening a Newly Scanned PDF
 
 ```kotlin
-import br.com.thiagoodev.paperlesskit.*
+import br.com.cortexrootlabs.paperlesskit.*
 
 suspend fun openScannedPdf(pdf: PDF) {
     PaperlessKit().open(pdf)
@@ -67,7 +67,7 @@ suspend fun openScannedPdf(pdf: PDF) {
 #### Example 4: Opening a PDF from Storage
 
 ```kotlin
-import br.com.thiagoodev.paperlesskit.*
+import br.com.cortexrootlabs.paperlesskit.*
 
 suspend fun openPdfFromPath(path: String) {
     PaperlessKit().open(path)

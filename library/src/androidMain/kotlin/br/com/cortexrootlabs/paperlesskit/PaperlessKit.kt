@@ -1,6 +1,5 @@
-package br.com.thiagoodev.paperlesskit
+package br.com.cortexrootlabs.paperlesskit
 
-import android.util.Log
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest

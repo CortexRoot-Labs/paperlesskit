@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.vanniktech.mavenPublish)
 }
 
-group = "br.com.thiagoodev"
+group = "br.com.cortexrootlabs"
 version = "1.0.0-alpha"
 
 kotlin {
@@ -43,7 +43,7 @@ kotlin {
 }
 
 android {
-    namespace = "br.com.thiagoodev.paperlesskit"
+    namespace = "br.com.cortexrootlabs.paperlesskit"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()

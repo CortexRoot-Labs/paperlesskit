@@ -1,4 +1,4 @@
-package br.com.thiagoodev.paperlesskit
+package br.com.cortexrootlabs.paperlesskit
 
 /**
  * Represents the source of the camera to be used for capturing a PDF.
