@@ -4,12 +4,12 @@ kotlin = "2.1.0"
 android-minSdk = "24"
 android-compileSdk = "34"
 kotlinxCoroutinesCore = "1.10.0"
-opencv = "4.10.0"
+playServicesMlkitDocumentScanner = "16.0.0-beta1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
-opencv = { module = "org.opencv:opencv", version.ref = "opencv" }
+mlkit-document-scanner = { module = "com.google.android.gms:play-services-mlkit-document-scanner", version.ref = "playServicesMlkitDocumentScanner" }
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }

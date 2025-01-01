@@ -1,21 +1,46 @@
 package br.com.thiagoodev.paperlesskit
 
-import org.opencv.android.CameraBridgeViewBase
-import org.opencv.android.OpenCVLoader
+import android.util.Log
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
+import androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult
+import androidx.appcompat.app.AppCompatActivity
+import com.google.mlkit.vision.documentscanner.GmsDocumentScanner
+import com.google.mlkit.vision.documentscanner.GmsDocumentScannerOptions
+import com.google.mlkit.vision.documentscanner.GmsDocumentScanning
+import com.google.mlkit.vision.documentscanner.GmsDocumentScanningResult
 
+actual class PaperlessKit : AppCompatActivity(), PaperlessKitInterface {
+    val options = GmsDocumentScannerOptions
+        .Builder()
+        .setScannerMode(GmsDocumentScannerOptions.SCANNER_MODE_FULL)
+        .setPageLimit(1)
+        .setResultFormats(GmsDocumentScannerOptions.RESULT_FORMAT_PDF)
+        .setGalleryImportAllowed(true)
+        .build()
+    val scanner: GmsDocumentScanner = GmsDocumentScanning.getClient(options)
+    val scannerLauncher: ActivityResultLauncher<IntentSenderRequest> =
+        registerForActivityResult(StartIntentSenderForResult(), ::onActivityResult)
 
-actual class PaperlessKit : PaperlessKitInterface {
-    init {
-        val isInitialize: Boolean = OpenCVLoader.initLocal()
-        if(!isInitialize) {
-            throw Exception("OpenCV não pôde ser carregado")
+    private fun onActivityResult(result: ActivityResult) {
+        if(result.resultCode == RESULT_OK) {
+            val docResult = GmsDocumentScanningResult.fromActivityResultIntent(result.data)
+            docResult?.pdf?.let { pdf ->
+                val pdfUri = pdf.uri
+                val pageCount = pdf.pageCount
+            }
         }
     }
 
     actual override suspend fun scan(options: Options): PDF {
+        scanner.getStartScanIntent(this)
+            .addOnSuccessListener { intentSender ->
+                scannerLauncher.launch(IntentSenderRequest.Builder(intentSender).build())
+            }
+            .addOnFailureListener {
 
-
-        TODO("Not yet implemented")
+            }
     }
 
     actual override suspend fun pick(): PDF {
@@ -29,5 +54,4 @@ actual class PaperlessKit : PaperlessKitInterface {
     actual override suspend fun open(path: String) {
         TODO("Not yet implemented")
     }
-
 }
