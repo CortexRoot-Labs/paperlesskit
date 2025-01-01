@@ -1,4 +1,4 @@
-package br.com.thiagoodev.paperlesskit
+package br.com.cortexrootlabs.paperlesskit
 
 /**
  * Configuration options for capturing and saving a PDF using the camera.

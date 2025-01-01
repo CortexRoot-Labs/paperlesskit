@@ -1,4 +1,4 @@
-package br.com.thiagoodev.paperlesskit
+package br.com.cortexrootlabs.paperlesskit
 
 /**
  * Represents a PDF document with its metadata and content.
