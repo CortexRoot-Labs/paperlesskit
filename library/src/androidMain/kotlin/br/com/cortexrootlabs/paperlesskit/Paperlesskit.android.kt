@@ -78,7 +78,7 @@ private fun addOnSuccessListener(scannerLauncher: ScannerLauncher, intentSender:
 }
 
 private fun addOnFailureListener(exception: Exception, state: MutableState<Pair<PDF?, Exception?>>) {
-    Log.d(LOG_TAG, "HomeScreen: ${exception.message}")
+    Log.d(LOG_TAG, exception.message ?: "Error!")
     state.value = Pair(null, exception)
 }
 
