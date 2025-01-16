@@ -1,29 +1,25 @@
 package br.com.cortexrootlabs.paperlesskit
 
-/**
- * Represents a PDF document with its metadata and content.
- *
- * @property name The name of the PDF file, including its extension.
- * @property bytes The content of the PDF as a byte array.
- *                 Useful for processing or transmitting the document.
- * @property path The file path where the PDF is stored on the device.
- *                This can be used to locate the file in the filesystem.
- */
 data class PDF(
-    /**
-     * The name of the PDF file, including its extension.
-     */
     val name: String,
-
-    /**
-     * The content of the PDF as a byte array.
-     * Useful for processing or transmitting the document.
-     */
-    val bytes: ByteArray,
-
-    /**
-     * The file path where the PDF is stored on the device.
-     * This can be used to locate the file in the filesystem.
-     */
     val path: String,
-)
+    val bytes: ByteArray
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || this::class != other::class) return false
+
+        other as PDF
+
+        if (path != other.path) return false
+        if (!bytes.contentEquals(other.bytes)) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = path.hashCode()
+        result = 31 * result + bytes.contentHashCode()
+        return result
+    }
+}
